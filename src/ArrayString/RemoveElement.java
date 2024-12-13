@@ -9,14 +9,17 @@ public class RemoveElement {
         int val= 3;
 
         /*
-        Answer starts here
-        1. Must remove occurences of val in nums *in-place*
-        2. Use 2-pointer method to shift the values:
+        1. Set a constant k
+        2. Initialise a for-loop that if the number in the loop is equal to val, then skip
+        3. Increment k by 1 when number not equal to val to update in-place
          */
-        Arrays.sort(nums,0, nums.length-1);
-
-
-
-        System.out.println(Arrays.toString(nums));
+        int k=0;
+        for (int i=0; i<= nums.length-1; i++) {
+            if (nums[i] != val) {
+                nums[k] = nums[i];
+                k++;
+            }
+        }
+        System.out.println(k);
     }
 }
