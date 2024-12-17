@@ -1,38 +1,38 @@
 package DailyQuestions;
 
-import java.util.Arrays;
+import java.util.PriorityQueue;
 
 public class MaximumAveragePassRatio_1792 {
     public static void main(String[] args) {
         int[][] classes = {{2,4},{3,9},{4,5},{2,10}};
         int extraStudents = 4;
 
-        double bestRatio = 0;
-        double[][] permutate = new double[classes.length][2];
-        double diff = 0;
-        int point = 0;
+        PriorityQueue<double[]> maxHeap = new PriorityQueue<>((a, b) -> Double.compare(b[0], a[0]));
 
-        for (int i=0; i<classes.length; i++) {
-            double x = classes[i][0];
-            double y = classes[i][1];
-
-            permutate[i][0] = (x/y);
-            permutate[i][1] = (x+extraStudents) / (y+extraStudents);
-
-            if (diff < permutate[i][1] - permutate[i][0]) {
-                diff = permutate[i][1] - permutate[i][0];
-                point = i;
-            }
+        for (int i = 0; i < classes.length; i++) {
+            double currAvg = (double) classes[i][0] / classes[i][1];
+            double newAvg = (double) (classes[i][0] + 1) / (classes[i][1] + 1);
+            double possibleIncrement = newAvg - currAvg;
+            maxHeap.offer(new double[]{possibleIncrement, i});
         }
 
-        for (int j=0 ; j< classes.length ; j++) {
-            if (j == point) {
-                bestRatio += permutate[j][1];
-            } else {
-                bestRatio += permutate[j][0];
-            }
+        while (extraStudents-- > 0) {
+            double[] top = maxHeap.poll();
+            int idx = (int) top[1];
+            classes[idx][0]++;
+            classes[idx][1]++;
+
+            double currAvg = (double) classes[idx][0] / classes[idx][1];
+            double newAvg = (double) (classes[idx][0] + 1) / (classes[idx][1] + 1);
+            double possibleIncrement = newAvg - currAvg;
+            maxHeap.offer(new double[]{possibleIncrement, idx});
         }
-        System.out.println(Arrays.deepToString(permutate));
-        System.out.println(bestRatio/= classes.length);
+
+        double finalAvg = 0.0;
+        for (int[] clazz : classes) {
+            finalAvg += (double) clazz[0] / clazz[1];
+        }
+
+        System.out.println(finalAvg / classes.length);
     }
 }
