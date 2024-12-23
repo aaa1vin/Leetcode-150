@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class InvertBinaryTree_226 {
-    public static class TreeNode { //Leetcode's custom class
+    private static class TreeNode { //Leetcode's custom class
         int val;
         TreeNode left;
         TreeNode right;
@@ -35,7 +35,7 @@ public class InvertBinaryTree_226 {
     }
 
     //BFS
-    public static void invertTree(TreeNode root) {
+    private static void invertTree(TreeNode root) {
         if (root == null) return;
 
         Queue<TreeNode> q = new LinkedList<>();
@@ -73,7 +73,7 @@ public class InvertBinaryTree_226 {
         }
     }
 
-    public static void printPreorder(TreeNode node) {
+    private static void printPreorder(TreeNode node) {
         if (node == null) return;
         System.out.print(node.val + " ");
         printPreorder(node.left);

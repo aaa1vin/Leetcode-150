@@ -1,7 +1,7 @@
 package BinaryTree;
 
 public class SameTree_100 {
-    public static class TreeNode { //Leetcode's custom class
+    private static class TreeNode { //Leetcode's custom class
         int val;
         TreeNode left;
         TreeNode right;
@@ -31,7 +31,7 @@ public class SameTree_100 {
         System.out.println(isSameTree(p,q));
     }
 
-    public static boolean isSameTree(TreeNode p, TreeNode q) {
+    private static boolean isSameTree(TreeNode p, TreeNode q) {
         if(p == null && q == null) return true;
         if(p == null || q == null || p.val != q.val) return false;
 

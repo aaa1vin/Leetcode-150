@@ -1,7 +1,7 @@
 package DailyQuestions;
 
 public class ReverseOddLevelsOfBinaryTrees_2415 {
-    public static class TreeNode { //Leetcode's custom class
+    private static class TreeNode { //Leetcode's custom class
         int val;
         TreeNode left;
         TreeNode right;

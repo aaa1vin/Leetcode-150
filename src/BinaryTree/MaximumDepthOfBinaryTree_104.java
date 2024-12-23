@@ -1,7 +1,7 @@
 package BinaryTree;
 
 public class MaximumDepthOfBinaryTree_104 {
-    public static class TreeNode { //Leetcode's custom class
+    private static class TreeNode { //Leetcode's custom class
         int val;
         TreeNode left;
         TreeNode right;
@@ -29,7 +29,7 @@ public class MaximumDepthOfBinaryTree_104 {
         System.out.println(maxDepth(root));
     }
 
-    public static int maxDepth(TreeNode node) {
+    private static int maxDepth(TreeNode node) {
         if (node == null) return 0;
 
         int left = maxDepth(node.left);
