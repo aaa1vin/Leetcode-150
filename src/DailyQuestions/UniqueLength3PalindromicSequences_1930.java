@@ -12,15 +12,15 @@ public class UniqueLength3PalindromicSequences_1930 {
         boolean[] letter = new boolean[26];
 
         for (int i=0; i<size; i++) {
-            if (!letter[s.charAt(i) - 'a']) {
+            boolean check = letter[s.charAt(i) - 'a'];
+            if (!check) {
                 for (int j=size-1; j>0; j--) {
-                    if (s.charAt(j) == s.charAt(i) && !letter[s.charAt(i) - 'a'] && i<j) {
-                        letter[s.charAt(i) - 'a'] = true;
+                    if (s.charAt(j) == s.charAt(i) && !check && i<j) {
+                        check = true;
                         formStrings(s,ps,i,j);
 
                     }
                 }
-
             }
         }
         System.out.println(ps);
