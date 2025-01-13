@@ -51,7 +51,7 @@ public class CheckIfAParenthesesStringCanBeValid_2116 {
         lower: to be matched with
         upper: ambigious, can match make with other pairs
          */
-        int upper = 0;
+/*        int upper = 0;
         int lower = 0;
         for (int i = 0; i < n; i++) {
             if (locked.charAt(i) == '1') {
@@ -73,6 +73,6 @@ public class CheckIfAParenthesesStringCanBeValid_2116 {
                 return false;
             }
         }
-        return lower == 0;
+        return lower == 0;*/
     }
 }
