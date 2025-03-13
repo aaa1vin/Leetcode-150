@@ -1,6 +1,6 @@
-//package TwoPointers;
-//
-//public class isSubsequence {
+package TwoPointers;
+
+public class isSubsequence {
 //    public static void main(String[] args) {
 //
 //    }
@@ -8,4 +8,4 @@
 //    public static boolean isSubsequence(String s, String t) {
 //
 //    }
-//}
+}
